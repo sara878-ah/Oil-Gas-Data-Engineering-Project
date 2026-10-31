@@ -16,7 +16,7 @@ The project follows the **Medallion Architecture** and uses Microsoft Fabric com
 Stores the raw SQLite source data in the Microsoft Fabric Lakehouse without major transformations.
 
 ### Silver Layer
-Cleans and standardizes the raw data using **PySpark**, including data type validation, missing-value handling, duplicate checks, and malformed numeric-value processing.
+Cleans and standardizes the raw data using **pandas**, including data type validation, missing-value handling, duplicate checks, and malformed numeric-value processing. The cleaned results are converted to Spark DataFrames and written to Delta tables.
 
 ### Gold Layer
 Transforms the cleaned data into analysis-ready **Fact and Dimension tables** following a **Star Schema**.
@@ -88,9 +88,11 @@ The project uses the **Brazil Oil and Gas Production** dataset available on Kagg
 
 This repository includes:
 
-- Jupyter Notebook (`.ipynb`) — Data cleaning, transformation, and Gold layer creation
-- Final Report (`.pdf`) — Final analytical dashboard
-- Project Documentation (`.pdf`) — Project architecture and implementation summary
+- [Microsoft Fabric notebook](Notebook%201.ipynb) (`.ipynb`) — Data cleaning, transformation, and Gold layer creation
+- [Final analytical dashboard](Oil%20%26%20Gas%20Data%20Engineering.pdf) (`.pdf`)
+- [Project documentation](Oil_Gas_Data_Engineering_Project_Documentation%20%281%29.pdf) (`.pdf`) — Project architecture and implementation summary
+
+**Note:** The notebook expects a Microsoft Fabric Lakehouse environment and the source SQLite dataset in `/lakehouse/default/Files/bronze/`; it does not run standalone without the Fabric context and source data.
 
 ## Project Workflow
 
